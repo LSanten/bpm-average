@@ -1,7 +1,10 @@
 #include<LiquidCrystal.h>
+#include <vector.h> // unsure about how to append vectors or import vector library
 
 // initalize the library with the numbers of the interface pins
 LiquidCrystal lcd(12,11,5,4,3,2);
+
+
 
 int led1 = 9;
 int button = 10;
@@ -26,11 +29,20 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
+  uint32_t t1 = millis();
+
+  // create vector object
+  //vector<int> time_vect;
+
   
   
+  //Serial.println(save_time);
+
+  
+    
   if (digitalRead(button) == HIGH) //if button is pressed, led will light up
   digitalWrite(led1, LOW);
   else
   digitalWrite(led1, HIGH);
-  Serial.println(digitalRead(button));
+  //Serial.println(digitalRead(button));
 }
