@@ -37,9 +37,9 @@ void setup() {
   // Welcome Display
   lcd.setCursor(0, 0); // (column, row) --> it starts with 
   lcd.print("BPM Counter");
-  lcd.setCursor(9, 1);
-  lcd.print("LSanten");
-  delay(1000);
+  lcd.setCursor(13, 1);
+  lcd.print(":-)");
+  delay(1800);
   lcd.clear();
 
   // Counter Mode display without values
