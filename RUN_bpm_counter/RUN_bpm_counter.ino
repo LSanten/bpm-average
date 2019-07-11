@@ -1,5 +1,11 @@
+// Leon Santen
+
+// if doesnt connect to arduino use:
+// sudo chmod a+rw /dev/ttyACM0
+
 #include<LiquidCrystal.h>
-#include <vector.h> // unsure about how to append vectors or import vector library
+
+
 
 // initalize the library with the numbers of the interface pins
 LiquidCrystal lcd(12,11,5,4,3,2);
@@ -8,7 +14,7 @@ LiquidCrystal lcd(12,11,5,4,3,2);
 
 int led1 = 9;
 int button = 10;
-int bareCount;
+int button_last_status; // will be set to 1 when button pressed; to 0 when not pressed
 
 void setup() {
   // put your setup code here, to run once:
@@ -29,20 +35,26 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  uint32_t t1 = millis();
-
-  // create vector object
-  //vector<int> time_vect;
-
-  
-  
-  //Serial.println(save_time);
-
-  
     
-  if (digitalRead(button) == HIGH) //if button is pressed, led will light up
-  digitalWrite(led1, LOW);
-  else
-  digitalWrite(led1, HIGH);
-  //Serial.println(digitalRead(button));
+    
+  if (digitalRead(button) == HIGH) //if button is pressed (LOW), led will light up
+  {
+    digitalWrite(led1, LOW);
+    button_last_status = 0;
+  }
+  else 
+  {
+    digitalWrite(led1, HIGH);
+    
+  
+    if (button_last_status == 0) // print millis when first button push in a row
+    {
+      uint32_t t1 = millis();  
+      Serial.println(t1); // print millis since program started
+    }
+  
+    button_last_status = 1; // sets button status to 1 so that Serial doesn't print continuously but only first time when button pressed
+  }
+  
+
 }
