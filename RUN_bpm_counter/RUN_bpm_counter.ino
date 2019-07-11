@@ -95,7 +95,7 @@ void loop() {
         {
           lastBeat = pressTime;
           intervalTime = (lastBeat - firstBeat)/(beatCount - 1);
-          bpm = 60000/intervalTime;
+          bpm = 60000/((float(lastBeat) - float(firstBeat))/(float(beatCount) - 1.00));
           
         }
   
