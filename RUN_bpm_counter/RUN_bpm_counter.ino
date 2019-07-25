@@ -3,6 +3,8 @@
 // if doesnt connect to arduino use:
 // sudo chmod a+rw /dev/ttyACM0
 
+// if display doesn't work --> page 140 - https://github.com/Freenove/Freenove_Ultimate_Starter_Kit_for_Arduino/blob/master/Tutorial.pdf 
+
 #include<LiquidCrystal.h>
 
 // initalize the library with the numbers of the interface pins
